@@ -11,7 +11,7 @@ function Row({ title, fetchUrl , isLargeRow }) {
   const [movies, setMovies] = useState([]);
   const [trailerUrl ,setTrailerUrl]=useState("");
 
-  const [error, setError] = useState(null);
+  const [errorr, setError] = useState(null);
  
 
   useEffect(() => {
@@ -26,6 +26,7 @@ function Row({ title, fetchUrl , isLargeRow }) {
         return response;
       } catch (error) {
         console.error("Error fetching data:", error.message);
+        console.log(errorr);
         setError(error.message);
       } 
     };
@@ -49,7 +50,6 @@ function Row({ title, fetchUrl , isLargeRow }) {
     } else {
       movieTrailer(movie?.name ||movie?.original_title|| '')
         .then((url) => {
-         { /* // https://www.youtube.com/watch?v=XtMThy8QKqU */}
           const urlParams = new URLSearchParams(new URL(url).search);
           const videoId = urlParams.get('v');
   
