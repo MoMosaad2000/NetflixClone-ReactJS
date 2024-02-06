@@ -30,9 +30,9 @@ function Row({ title, fetchUrl , isLargeRow }) {
         setError(error.message);
       } 
     };
-   
+
     fetchData();
-  }, [fetchUrl]);
+  }, [fetchUrl ,errorr]);
   
   // Options for the YouTube player (optional)
    const opts = {
